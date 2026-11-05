@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TaskMatic | Organiza tus tareas</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="page">
+<header class="banner">
+ <div class="logo" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><rect x="12" y="8" width="40" height="48" rx="6" fill="#E4F3FF" stroke="#0876CF" stroke-width="3"/><path d="M23 8V5h18v7H23z" fill="#0876CF"/><path d="m21 25 4 4 7-8M21 39l4 4 7-8" stroke="#159447" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M36 26h8M36 40h8" stroke="#0876CF" stroke-width="3.5" stroke-linecap="round"/></svg></div>
+ <div><h1>TaskMatic</h1><p>¡Organiza tus tareas y dale vida a tus ideas!</p></div>
+ <div class="tag">ORGANIZADOR DE TAREAS</div>
+</header>
+<div class="subtitle">Creación del frontend: “¡Organiza tu tiempo!”</div>
+<div class="dashboard">
+ <section class="panel">
+  <div class="panel-title">▣ &nbsp;Agregar / editar tarea</div>
+  <div class="panel-body">
+   <div class="field"><label for="taskName">Nombre de la tarea:</label><input id="taskName" maxlength="100" placeholder="Ej. Terminar el trabajo de ciencias"></div>
+   <div class="field"><label for="taskDesc">Descripción:</label><textarea id="taskDesc" rows="3" placeholder="Escribe los detalles de la tarea..."></textarea></div>
+   <div class="field"><label for="taskDate">Fecha límite:</label><input id="taskDate" type="date"></div>
+   <div class="field"><label for="taskPriority">Prioridad:</label><select id="taskPriority"><option value="Alta">Alta</option><option value="Media" selected>Media</option><option value="Baja">Baja</option></select></div>
+   <div class="field"><label for="taskCategory">Categoría:</label><select id="taskCategory"><option>Estudio</option><option>Personal</option><option>Trabajo</option><option>Otro</option></select></div>
+   <div class="button-row"><button class="btn-green" id="saveBtn">＋ Agregar tarea</button><button class="btn-light" id="cancelBtn" type="button">Limpiar</button></div>
+   <p class="hint">Selecciona una tarea de la lista para modificarla o eliminarla.</p>
+  </div>
+ </section>
+ <section class="panel">
+  <div class="panel-title">▦ &nbsp;Detalle de la tarea</div>
+  <div class="panel-body">
+   <div class="task-preview"><div class="preview-icon">✓</div><div class="preview-content"><h3 id="previewName">Ninguna tarea seleccionada</h3><p id="previewDesc">Selecciona una tarea de la lista para ver sus detalles aquí.</p><div class="meta" id="previewMeta"></div></div></div>
+   <div class="stats"><div class="stat"><strong id="totalStat">0</strong><span>Tareas totales</span></div><div class="stat"><strong id="doneStat">0</strong><span>Completadas</span></div><div class="stat"><strong id="pendingStat">0</strong><span>Pendientes</span></div></div>
+   <div class="field"><label for="sortBy">Organizar tareas por:</label><select id="sortBy"><option value="date">Fecha límite (próximas primero)</option><option value="priority">Prioridad (alta a baja)</option><option value="name">Nombre (A-Z)</option><option value="status">Estado (pendientes primero)</option><option value="created">Orden de creación</option></select></div>
+   <div class="field"><label for="filterBy">Mostrar:</label><select id="filterBy"><option value="all">Todas las tareas</option><option value="pending">Solo pendientes</option><option value="done">Solo completadas</option></select></div>
+   <button class="btn-blue full" id="organizeBtn">↕ Organizar lista</button>
+   <p class="hint">Las tareas completadas se pueden volver a marcar como pendientes desde la casilla de verificación.</p>
+  </div>
+ </section>
+ <section class="panel list-panel">
+  <div class="panel-title">☷ &nbsp;Lista de tareas</div>
+  <div class="panel-body">
+   <div class="list-toolbar"><select id="quickFilter" aria-label="Filtrar tareas"><option value="all">Todas</option><option value="pending">Pendientes</option><option value="done">Completadas</option></select><select id="quickSort" aria-label="Ordenar tareas"><option value="date">Por fecha</option><option value="priority">Por prioridad</option><option value="name">Por nombre</option></select></div>
+   <div class="task-list" id="taskList"><div class="empty">☑<br><strong>Aún no tienes tareas</strong><br>Agrega tu primera tarea usando el formulario.</div></div>
+   <div class="notice" id="notice" role="status">Selecciona una tarea para ver sus detalles.</div>
+  </div>
+ </section>
+</div>
+<div class="bottom-actions">
+ <button class="action-card btn-green" id="bottomAdd"><span class="big-icon">⊕</span><span><strong>Agregar tarea</strong><small>Crear una nueva tarea</small></span></button>
+ <button class="action-card btn-orange" id="editBtn"><span class="big-icon">✎</span><span><strong>Modificar tarea</strong><small>Editar la seleccionada</small></span></button>
+ <button class="action-card btn-red" id="deleteBtn"><span class="big-icon">▤</span><span><strong>Eliminar tarea</strong><small>Borrar la seleccionada</small></span></button>
+ <button class="action-card btn-purple" id="completeBtn"><span class="big-icon">✓</span><span><strong>Completar tarea</strong><small>Marcar como realizada</small></span></button>
+</div>
+<footer>TaskMatic · Organiza tus actividades de forma fácil y visual.</footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>
